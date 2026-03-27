@@ -1,0 +1,96 @@
+程序路径=Tl9tM3U4REwtQ0xJX3YzLjAuMi5leGU=;保存路径=;代理=;请求头=;删除临时文件=0;MP4混流边下边看=0;二进制合并=0;仅解析模式=0;不写入日<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>北海道自駕冒險 8D7N</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #f3f4f6; font-family: sans-serif; }
+        .tab-content { display: none; }
+        .active { display: block; }
+    </style>
+</head>
+<body class="pb-20">
+
+    <header class="bg-blue-600 text-white p-4 shadow-md sticky top-0 z-10">
+        <h1 class="text-xl font-bold text-center">北海道自駕行程 & 記帳</h1>
+    </header>
+
+    <nav class="flex border-b bg-white">
+        <button onclick="showTab('itinerary')" class="flex-1 py-3 text-center border-b-2 border-blue-600 font-bold">查看行程</button>
+        <button onclick="showTab('expense')" class="flex-1 py-3 text-center text-gray-500 font-bold">即時記帳</button>
+    </nav>
+
+    <main id="itinerary" class="tab-content active p-4">
+        <div class="space-y-4">
+            <div class="bg-white p-4 rounded-lg shadow">
+                <h3 class="font-bold text-blue-600 border-b pb-1 mb-2">Day 1: 新千歲機場取車</h3>
+                <p class="text-sm text-gray-600">抵達、NICONICO 租車取車 (X-Trail 同級)、入住機場周邊或千歲市。</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow">
+                <h3 class="font-bold text-blue-600 border-b pb-1 mb-2">Day 2-3: 札幌 & 小樽</h3>
+                <p class="text-sm text-gray-600">小樽運河、積丹半島 (積丹藍)、札幌市區美食。</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow">
+                <h3 class="font-bold text-blue-600 border-b pb-1 mb-2">Day 4-5: 富良野 & 美瑛</h3>
+                <p class="text-sm text-gray-600">拼布之路、四季彩之丘。體驗 6 月的初夏花田。</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow">
+                <h3 class="font-bold text-blue-600 border-b pb-1 mb-2">Day 6-7: 登別 & 洞爺湖</h3>
+                <p class="text-sm text-gray-600">地獄谷溫泉、洞爺湖煙火、有珠山纜車。</p>
+            </div>
+        </div>
+    </main>
+
+    <main id="expense" class="tab-content p-4">
+        <div class="bg-white p-4 rounded-lg shadow mb-4">
+            <h3 class="font-bold mb-3">新增支出</h3>
+            <div class="space-y-2">
+                <input id="item" type="text" placeholder="項目 (如: 拉麵)" class="w-full border p-2 rounded">
+                <input id="amount" type="number" placeholder="金額 (JPY)" class="w-full border p-2 rounded">
+                <button onclick="addExpense()" class="w-full bg-green-500 text-white py-2 rounded font-bold">存檔</button>
+            </div>
+        </div>
+
+        <div class="bg-white p-4 rounded-lg shadow">
+            <h3 class="font-bold mb-2">支出明細</h3>
+            <ul id="expenseList" class="divide-y text-sm">
+                <li class="py-2 flex justify-between"><span>預計租車費</span><span class="font-mono">¥51,930</span></li>
+            </ul>
+            <div class="mt-4 pt-2 border-t font-bold text-right text-red-600">
+                總計: ¥<span id="total">51930</span>
+            </li>
+        </div>
+    </main>
+
+    <script>
+        let total = 51930;
+
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            // 切換按鈕樣式 (略)
+        }
+
+        function addExpense() {
+            const item = document.getElementById('item').value;
+            const amount = parseInt(document.getElementById('amount').value);
+            if (!item || !amount) return;
+
+            const list = document.getElementById('expenseList');
+            const li = document.createElement('li');
+            li.className = 'py-2 flex justify-between';
+            li.innerHTML = `<span>${item}</span><span class="font-mono">¥${amount.toLocaleString()}</span>`;
+            list.appendChild(li);
+
+            total += amount;
+            document.getElementById('total').innerText = total.toLocaleString();
+
+            // 清空輸入框
+            document.getElementById('item').value = '';
+            document.getElementById('amount').value = '';
+        }
+    </script>
+</body>
+</html>期=0;最大线程=32;最小线程=16;重试次数=15;超时秒数=10;停止速度=0;最大速度=0;不合并=0;不使用系统代理=0;仅合并音频=0
